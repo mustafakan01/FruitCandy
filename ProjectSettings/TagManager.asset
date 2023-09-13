@@ -44,3 +44,6 @@ TagManager:
   - name: seker
     uniqueID: 398982079
     locked: 0
+  - name: Secim
+    uniqueID: 2362407621
+    locked: 0
