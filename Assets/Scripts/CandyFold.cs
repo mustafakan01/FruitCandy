@@ -95,7 +95,7 @@ public class CandyFold : MonoBehaviour
     }
     void LocChance()
         {
-            transform.position=Vector3.Lerp(transform.position,targetLocation,0.1f);
+            transform.position=Vector3.Lerp(transform.position,targetLocation,0.2f);
         }
 }
 
