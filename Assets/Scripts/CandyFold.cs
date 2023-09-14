@@ -226,21 +226,7 @@ public class CandyFold : MonoBehaviour
             }
         }
     }
-     public void DisappearAndReplace()
-    {
-        // Patlayan şekerleri kaldır
-        foreach (var candy in candy_x)
-        {
-            candy.Disappear();
-        }
-        foreach (var candy in candy_y)
-        {
-            candy.Disappear();
-        }
-
-        // Patlayan şekerlerin yerine yeni şekerler oluştur
-        creator.PopulateCandies(); // Yeni şekerlerin oluşturulduğu bir yöntem ekleyin
-    }
+    
 
     public void Disappear()
     {
