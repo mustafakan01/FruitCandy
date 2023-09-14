@@ -226,21 +226,55 @@ public class CandyFold : MonoBehaviour
             }
         }
     }
+     public void DisappearAndReplace()
+    {
+        // Patlayan şekerleri kaldır
+        foreach (var candy in candy_x)
+        {
+            candy.Disappear();
+        }
+        foreach (var candy in candy_y)
+        {
+            candy.Disappear();
+        }
+
+        // Patlayan şekerlerin yerine yeni şekerler oluştur
+        creator.PopulateCandies(); // Yeni şekerlerin oluşturulduğu bir yöntem ekleyin
+    }
 
     public void Disappear()
     {
         Destroy(gameObject);
+        int controlx=(int)x;
+        int index=0;
 
         if (candy_y.Count > 0 || candy_x.Count > 0)
         {
             for (int i = (int)y + 1; i < creator.candies.GetLength(1); i++)
             {
-                CandyFold control = candy_y.Find(e => e.x == x && e.y == i);
-                control = creator.candies[(int)x, i];
-                if (control != null)
+                CandyFold control = candy_y.Find(e => e.x == controlx && e.y == i);
+                
+                if (control==null)
                 {
-                    control.NewLoc(x, i - (candy_y.Count + 1));
+                    control = creator.candies[(int)controlx, i];  
+                    if (control != null)
+                    {
+                    control.NewLoc(controlx, i - (candy_y.Count + 1));
+                    }
                 }
+            if (i+1==creator.candies.GetLength(1))
+            {
+                if (index<candy_x.Count)
+                {
+                    
+                    i=(int)y;
+                    controlx=(int)candy_x[index].x;
+                    index++;
+                    
+                }
+                
+            }
+                
             }
         }
 
