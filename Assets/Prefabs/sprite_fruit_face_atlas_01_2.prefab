@@ -101,11 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  targetScore: 3
+  currentScore: 4
   Colour: 
   locationChance: 0
   targetLocation: {x: 0, y: 0, z: 0}
-  candy_x: []
-  candy_y: []
 --- !u!61 &2991236441623213373
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CandyFold : MonoBehaviour
 {
     public float x, y;
+    
     public string Colour;
 
     private GameObject secim;
@@ -204,7 +206,10 @@ public class CandyFold : MonoBehaviour
 
     private IEnumerator Destroyer()
     {
+
         yield return new WaitForSeconds(0.3f);
+
+       
 
         if (candy_x.Count >= 2 || candy_y.Count >= 2)
         {
@@ -256,6 +261,7 @@ public class CandyFold : MonoBehaviour
                     i=(int)y;
                     controlx=(int)candy_x[index].x;
                     index++;
+                    Debug.Log(index);
                     
                 }
                 
@@ -264,6 +270,6 @@ public class CandyFold : MonoBehaviour
             }
         }
 
-        Debug.Log("Yok oldu");
+        // Debug.Log("Yok oldu");
     }
 }
