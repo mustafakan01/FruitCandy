@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6480671464511599803}
   - component: {fileID: -8747906013692032152}
   - component: {fileID: 2181345291255930549}
+  - component: {fileID: -1169253522403025740}
   m_Layer: 0
   m_Name: sprite_fruit_face_atlas_01_8
   m_TagString: Untagged
@@ -100,6 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  Colour: 
+  locationChance: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  candy_x: []
+  candy_y: []
 --- !u!61 &2181345291255930549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +132,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6896347, y: 0.6704792}
   m_EdgeRadius: 0
+--- !u!95 &-1169253522403025740
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577350517654215862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: adccbedb63f309f40b93e12fd6a6456d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
