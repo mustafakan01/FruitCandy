@@ -7,7 +7,7 @@ public class creator : MonoBehaviour
     public GameObject[] sekerler;
     public int width;
     public int height;
-    public CandyFold[ , ] candies;
+    public static CandyFold[ , ] candies;
     void Start()
     {
         candies = new CandyFold[width,height];
@@ -27,8 +27,10 @@ public class creator : MonoBehaviour
 
     public void CreatorCandy(int x, int y)
     {
-        GameObject newCandy = GameObject.Instantiate(RandomCandy(),new Vector2(x , y + 10), Quaternion.identity);
+        GameObject RandomCandyObject= RandomCandy();
+        GameObject newCandy = GameObject.Instantiate(RandomCandyObject,new Vector2(x , y + 10), Quaternion.identity);
         CandyFold candyFold= newCandy.GetComponent<CandyFold>();
+        candyFold.Colour=RandomCandyObject.name;
         candyFold.NewLoc(x,y);
         candies [x,y]=candyFold;
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class CandyFold : MonoBehaviour
 {
     public float x,y;
+
+    public string Colour;
     GameObject secim;
 
     public bool locationChance=false;
@@ -14,6 +16,9 @@ public class CandyFold : MonoBehaviour
     public static CandyFold secondCandy;
 
     public Vector3 targetLocation;
+
+    public List<CandyFold> candy_x;
+    public List<CandyFold> candy_y;
     
     void Start()
     {
@@ -76,6 +81,16 @@ public class CandyFold : MonoBehaviour
                     secondCandy.targetLocation=firstCandy.transform.position;
                     firstCandy.locationChance=true;
                     secondCandy.locationChance=true;
+
+                    
+
+                    
+
+                    Chance();
+                    firstCandy.ControlX();
+                    firstCandy.ControlY();
+                    
+
                     firstCandy=null;
                     
                 }
@@ -93,9 +108,79 @@ public class CandyFold : MonoBehaviour
 
         
     }
+   
+   void Chance()
+   {
+        creator.candies[(int)firstCandy.x,(int)firstCandy.y]=secondCandy;
+        creator.candies[(int)secondCandy.x,(int)secondCandy.y]=firstCandy;
+
+        float firstCandy_x=firstCandy.x;
+        float firstCandy_y=firstCandy.y;
+
+        firstCandy.x=secondCandy.x;
+        firstCandy.y=secondCandy.y;
+
+        secondCandy.x=firstCandy.x;
+        secondCandy.y=firstCandy.y;
+   }
     void LocChance()
         {
             transform.position=Vector3.Lerp(transform.position,targetLocation,0.2f);
         }
+
+    void ControlX()
+    {
+        for (int i = (int)x+1; i < creator.candies.GetLength(0); i++)
+        {
+            CandyFold rightCandy=creator.candies[i,(int)y];
+            if (Colour==rightCandy.Colour)
+            {
+                candy_x.Add(rightCandy);
+            }
+            else
+            {
+                break;
+            }
+        }
+        for (int i = (int)x-1; i > 0; i--)
+        {
+            CandyFold rightCandy=creator.candies[i,(int)y];
+            if (Colour==rightCandy.Colour)
+            {
+                candy_x.Add(rightCandy);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+     void ControlY()
+    {
+        for (int i = (int)y+1; i < creator.candies.GetLength(0); i++)
+        {
+            CandyFold backCandy=creator.candies[(int)x,i];
+            if (Colour==backCandy.Colour)
+            {
+                candy_y.Add(backCandy);
+            }
+            else
+            {
+                break;
+            }
+        }
+        for (int i = (int)y-1; i > 0; i--)
+        {
+            CandyFold backCandy=creator.candies[(int)x,i];
+            if (Colour==backCandy.Colour)
+            {
+                candy_y.Add(backCandy);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
 }
 
