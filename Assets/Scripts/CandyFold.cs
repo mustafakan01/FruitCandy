@@ -261,7 +261,7 @@ public class CandyFold : MonoBehaviour
                     i=(int)y;
                     controlx=(int)candy_x[index].x;
                     index++;
-                    Debug.Log(index);
+                    
                     
                 }
                 
